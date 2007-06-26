@@ -1,45 +1,46 @@
-%define release 5
-
 Summary:	Active ICMP fingerprinting tool
 Name:		xprobe2
-Version:	0.2
-Release:	%mkrel %release
+Version:	0.3
+Release:	%mkrel 1
 License:	GPL
 Group:		Networking/Other
-Source0:	http://www.sys-security.com/archive/tools/%{name}/%{name}-%{version}.tar.bz2 
-URL:		http://www.sys-security.com/html/projects/X.html
-Patch0:         xprobe2-0.2-gcc33.patch
+URL:		http://xprobe.sourceforge.net/
+Source0:	http://kent.dl.sourceforge.net/sourceforge/xprobe/%{name}-%{version}.tar.gz
+BuildRequires:	libpcap-devel
+BuildRequires:	glib2-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:  libpcap-devel glib2-devel
 
 %description
-Xprobe2 is an active operating system fingerprinting tool with a different 
-approach to operating system fingerprinting. Xprobe2 rely on fuzzy 
+Xprobe2 is an active operating system fingerprinting tool with a different
+approach to operating system fingerprinting. Xprobe2 rely on fuzzy
 signature matching, probabilistic guesses, multiple matches simultaneously,
 and a signature database.
 
 %prep
-%setup -q 
-%patch0 -p0
+
+%setup -q
+
+chmod 644 docs/* AUTHORS CHANGELOG COPYING CREDITS README TODO
 
 %build
-./configure --prefix=%{_prefix} \
-	--libdir=%{_libdir} \
-	--sysconfdir=%{_sysconfdir}/
+
+%configure2_5x \
+    --bindir=%{_sbindir}
+
 %make 
 
 %install
 rm -rf %{buildroot}
-%makeinstall 
-mv  $RPM_BUILD_ROOT/%_bindir/ $RPM_BUILD_ROOT/%_sbindir
+
+%makeinstall_std
+
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%_sbindir/*
-%config(noreplace) %_sysconfdir/%name/*
-%dir %_sysconfdir/%name/
-%_mandir/man1/* 
-
-
+%doc docs/*.txt docs/*.pdf docs/*.xsd AUTHORS CHANGELOG COPYING CREDITS README TODO
+%dir %{_sysconfdir}/%{name}/
+%config(noreplace) %{_sysconfdir}/%{name}/*
+%{_sbindir}/*
+%{_mandir}/man1/* 
