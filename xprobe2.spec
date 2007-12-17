@@ -8,7 +8,6 @@ URL:		http://xprobe.sourceforge.net/
 Source0:	http://kent.dl.sourceforge.net/sourceforge/xprobe/%{name}-%{version}.tar.gz
 BuildRequires:	libpcap-devel
 BuildRequires:	glib2-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Xprobe2 is an active operating system fingerprinting tool with a different
