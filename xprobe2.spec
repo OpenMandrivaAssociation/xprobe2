@@ -46,3 +46,44 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/%{name}/*
 %{_sbindir}/*
 %{_mandir}/man1/* 
+
+
+%changelog
+* Tue May 03 2011 Michael Scherer <misc@mandriva.org> 0.3-8mdv2011.0
++ Revision: 664863
+- mass rebuild
+
+* Mon Sep 21 2009 Thierry Vignaud <tv@mandriva.org> 0.3-7mdv2010.0
++ Revision: 446266
+- rebuild
+
+* Wed Oct 29 2008 Oden Eriksson <oeriksson@mandriva.com> 0.3-6mdv2009.1
++ Revision: 298456
+- rebuilt against libpcap-1.0.0
+
+* Mon Sep 15 2008 Michael Scherer <misc@mandriva.org> 0.3-5mdv2009.0
++ Revision: 284907
+- rebuild, thanks to patch 1 to fix missing include
+- fix license
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue Jun 26 2007 Oden Eriksson <oeriksson@mandriva.com> 0.3-1mdv2008.0
++ Revision: 44619
+- 0.3
+- drop upstream patches; P0
+- new url
+
+
+* Tue Oct 31 2006 Michael Scherer <misc@mandriva.org> 0.2-5mdv2007.0
++ Revision: 74744
+- Rebuild for new suffix
+- fix build with new coreutils ( or i think so, because it was working before )
+- Bunzip patch
+- Import xprobe2
+
