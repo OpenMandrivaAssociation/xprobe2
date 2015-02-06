@@ -1,7 +1,7 @@
 Summary:	Active ICMP fingerprinting tool
 Name:		xprobe2
 Version:	0.3
-Release:	%mkrel 8
+Release:	9
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://xprobe.sourceforge.net/
