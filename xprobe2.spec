@@ -4,7 +4,7 @@ Version:	0.3
 Release:	9
 License:	GPLv2+
 Group:		Networking/Other
-URL:		http://xprobe.sourceforge.net/
+URL:		https://xprobe.sourceforge.net/
 Source0:	http://kent.dl.sourceforge.net/sourceforge/xprobe/%{name}-%{version}.tar.gz
 Patch:      xprobe2-0.3-fix-compilation.patch
 BuildRequires:	libpcap-devel
